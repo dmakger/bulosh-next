@@ -10,10 +10,11 @@ import { categoriesToOptions } from "@/entities/Metric/lib/category/option.categ
 import { List } from "@/shared/ui/List/List";
 
 interface CategoryListProps{
+    hasOutline?: boolean
     className?: string,
 }
 
-export const CategoryList:FC<CategoryListProps> = ({className}) => {
+export const CategoryList:FC<CategoryListProps> = ({hasOutline, className}) => {
     // API
     const {data: categories} = CategoryAPI.useGetCategoriesQuery()
 
@@ -25,10 +26,7 @@ export const CategoryList:FC<CategoryListProps> = ({className}) => {
         setOptions(categoriesToOptions(categories))
     }, [categories])
 
-    console.log(options);
-
-
     return (
-        <List options={options} className={cls(className)} />
+        <List options={options} hasOutline={hasOutline} className={cls(className)} />
     )
 }

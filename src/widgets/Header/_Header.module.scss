@@ -2,3 +2,10 @@
     background-color: var(--background-2);
     padding: 30px 0;
 }
+
+.wrapperContent {
+    display: flex;
+    flex-direction: row !important;
+    justify-content: center;
+    gap: 20px;
+}

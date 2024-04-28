@@ -12,6 +12,7 @@ import { ImageSmart } from "../../Image/Smart/ImageSmart";
 interface ButtonProps {
     view?: ButtonView
     isActive?: boolean
+    isCircle?: boolean
 
     beforeImage?: IIcon
     beforeProps?: IIconProps
@@ -30,7 +31,7 @@ interface ButtonProps {
 }
 
 export const Button:FC<ButtonProps> = ({
-    view=ButtonView.WhiteToPrimary, isActive=false,
+    view=ButtonView.WhiteToPrimary, isActive=false, isCircle=false,
     beforeImage, beforeProps,
     title, 
     arrow, arrowAxis=Axis.Default, 
@@ -53,9 +54,12 @@ export const Button:FC<ButtonProps> = ({
 
     return (
         <button onClick={e => onClick(e)} onMouseEnter={handleOnMouseEnter} onMouseLeave={handleOnMouseLeave} 
-                className={cls(cl.button, cl[view], isActive ? cl.active : '', className)}>
+                className={cls(cl.button, isCircle ? cl.circle : '', cl[view], isActive ? cl.active : '', className)}>
             {beforeImage &&
-                <ImageSmart icon={beforeImage} width={20} height={20} isActive={isActive} isHovered={isHovered} {...beforeProps} />
+                <ImageSmart {...beforeProps} icon={beforeImage} 
+                            width={beforeProps && beforeProps.width ? beforeProps.width: 20} 
+                            height={beforeProps && beforeProps.height ? beforeProps.height: 20} 
+                            isActive={isActive} isHovered={isHovered} />
             }
             {title && 
                 <span className={cl.title}>{title}</span>

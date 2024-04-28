@@ -87,6 +87,7 @@ body {
   input {
     color: var(--foreground-1);
     font-family: var(--montserrat-font);
+    font-weight: var(--fw-medium);
 
     &::placeholder {
       color: var(--gray-5);

@@ -1,3 +1,31 @@
-.options {
-    
+.block {
+    display: flex;
+    flex-direction: column;
+    padding: 1px;
+    border-radius: 10px;
+
+    border-radius: 10px;
+    background-color: var(--gray-2);
+}
+
+
+.content {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: var(--background-2);
+
+    .item {
+        justify-content: space-between;
+    }
+}
+
+.outline {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.back {
+    justify-content: start;
+    // background-color: ;
 }
