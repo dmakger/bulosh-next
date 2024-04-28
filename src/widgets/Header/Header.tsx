@@ -20,7 +20,7 @@ export const Header:FC<HeaderProps> = () => {
             <Search />
             <Button view={ButtonView.BlackTToPurpleTV} 
                     title={"Корзина"} beforeImage={CART_BLACK_PURPLE__ICON} 
-                    className={cl.buttonTitle} />
+                    classNameTitle={cl.buttonTitle} />
         </Wrapper1280>
     )
 }
