@@ -75,3 +75,18 @@
         color: var(--foreground-1);
     }
 }
+
+// ===={ BLACK TEXT TO PURPLE TEXT VERTICAL }====
+.blackTToPurpleTV {
+    background-color: var(--background-2);
+    flex-direction: column;
+
+    &:hover {
+        .title {
+            color: var(--primary);
+        }
+    }
+    .title {
+        color: var(--foreground-1);
+    }
+}

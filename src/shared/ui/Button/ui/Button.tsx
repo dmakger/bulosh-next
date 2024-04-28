@@ -24,6 +24,7 @@ interface ButtonProps {
 
     children?: ReactNode,
     className?: string,
+    classNameTitle?: string,
 
     onClick?: Function
     onMouseEnter?: Function
@@ -35,7 +36,7 @@ export const Button:FC<ButtonProps> = ({
     beforeImage, beforeProps,
     title, 
     arrow, arrowAxis=Axis.Default, 
-    children, className, 
+    children, className, classNameTitle,
     onClick=()=>{}, onMouseEnter=()=>{}, onMouseLeave=()=>{},
 }) => {
     
@@ -62,7 +63,7 @@ export const Button:FC<ButtonProps> = ({
                             isActive={isActive} isHovered={isHovered} />
             }
             {title && 
-                <span className={cl.title}>{title}</span>
+                <span className={cls(cl.title, classNameTitle)}>{title}</span>
             }
             {arrow &&
                 <ArrowIcon icon={arrow} axis={arrowAxis} width={12} height={12} isActive={isActive} isHovered={isHovered} />
