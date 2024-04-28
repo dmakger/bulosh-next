@@ -1,0 +1,59 @@
+.button {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    border-radius: 10px;
+    padding: 10px 15px;
+
+    transition: .2s;
+
+    .title {
+        font-size: var(--fs-srg);
+        font-weight: var(--fw-bold);
+        color: var(--foreground-1);
+
+        transition: .2s;
+    }
+}
+
+// ===={ WHITER TO PRIMARY }====
+.whiteToPrimary {
+    background-color: var(--background-2);
+    border: 1px solid var(--empty);
+
+    &:hover {
+        background-color: var(--background-3);
+    }
+
+    &.active {
+        background-color: var(--primary-light);
+
+        .title {
+            color: var(--primary)
+        }
+
+        &:hover {
+            border-color: var(--primary);
+        }
+    }
+}
+
+// ===={ PRIMARY TO OUTLINE }====
+.primaryToOutline {
+    background-color: var(--primary);
+    border: 1px solid var(--primary);
+
+    &:hover {
+        background-color: var(--primary-light);
+        border-color: var(--primary);
+
+        .title {
+            color: var(--primary);
+        }
+    }
+
+    .title {
+        color: var(--foreground-3);
+    }
+}

@@ -1,0 +1,15 @@
+.logo {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+    .text {
+        font-size: var(--fs-lrg);
+        font-weight: var(--fw-bold);
+    }
+
+    .image {
+        width: 30px;
+        height: 30px;
+    }
+}
