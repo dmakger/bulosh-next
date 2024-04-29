@@ -3,4 +3,5 @@ export enum ButtonView {
     PrimaryToOutline = 'primaryToOutline',
     BlackTToPurpleT = 'blackTToPurpleT',
     BlackTToPurpleTV = 'blackTToPurpleTV',
+    PrimaryOToFill = 'primaryOToFill',
 }

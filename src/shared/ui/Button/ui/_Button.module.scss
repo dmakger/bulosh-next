@@ -90,3 +90,18 @@
         color: var(--foreground-1);
     }
 }
+
+// ===={ PRIMARY OUTLINE TO FILL }====
+.primaryOToFill {
+    border: 1px solid var(--primary);
+
+    &:hover {
+        background-color: var(--primary);
+        .title {
+            color: var(--foreground-3);
+        }
+    }
+    .title {
+        color: var(--primary);
+    }
+}

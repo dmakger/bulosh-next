@@ -8,6 +8,9 @@ import { Search } from "../Search";
 import { Button } from "@/shared/ui/Button/ui/Button";
 import { ButtonView } from "@/shared/model/button.model";
 import { CART_BLACK_PURPLE__ICON } from "@/shared/ui/Icon/data/cart.data.icon";
+import { DASHBOARD_PAGES } from "@/config/pages-url.config";
+import { AuthButton } from "@/entities/User/ui/AuthButton/AuthButton";
+import { getTokens } from "@/entities/User/lib/auth-token.lib";
 
 interface HeaderProps{
 }
@@ -15,12 +18,13 @@ interface HeaderProps{
 export const Header:FC<HeaderProps> = () => {
     return (
         <Wrapper1280 className={cl.wrapper} classNameContent={cl.wrapperContent}>
-            <LogoSmall />
+            <LogoSmall isLink={true} />
             <CategoryModal />
             <Search />
-            <Button view={ButtonView.BlackTToPurpleTV} 
+            <Button view={ButtonView.BlackTToPurpleTV} href={DASHBOARD_PAGES.CART}
                     title={"Корзина"} beforeImage={CART_BLACK_PURPLE__ICON} 
                     classNameTitle={cl.buttonTitle} />
+            <AuthButton />
         </Wrapper1280>
     )
 }
