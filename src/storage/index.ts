@@ -1,10 +1,12 @@
 import { CategoryAPI } from "@/entities/Metric/api/category.metric.api";
+import { ProductAPI } from "@/entities/Product/api/product.api";
 import { UserAPI } from "@/entities/User/api/user.api";
 import {combineReducers, configureStore} from "@reduxjs/toolkit";
 
 const rootReducer = combineReducers({
     [CategoryAPI.reducerPath]: CategoryAPI.reducer,
     [UserAPI.reducerPath]: UserAPI.reducer,
+    [ProductAPI.reducerPath]: ProductAPI.reducer,
 })
 
 export const setupStore = () => {
@@ -16,6 +18,7 @@ export const setupStore = () => {
             }).concat(
                 CategoryAPI.middleware,
                 UserAPI.middleware,
+                ProductAPI.middleware,
             ),
     })
 }
