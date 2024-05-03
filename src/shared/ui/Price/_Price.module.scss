@@ -1,0 +1,12 @@
+.block {
+    background-color: var(--third);
+    border-radius: 10px;
+    display: flex;
+    width: fit-content;
+
+    .price {
+        padding: 5px 10px;
+        font-weight: var(--fw-bold);
+        color: var(--foreground-3);
+    }
+}

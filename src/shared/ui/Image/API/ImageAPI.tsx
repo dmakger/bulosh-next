@@ -13,9 +13,10 @@ interface ImageAPIProps{
     className?: string,
 }
 
-export const ImageAPI:FC<ImageAPIProps> = ({src, alt, width, height, priority=true, className}) => {
+export const ImageAPI:FC<ImageAPIProps> = ({src, alt, width, height, priority=false, className}) => {
     return (
-        <Image loader={() => src}
+        <Image 
+        // loader={() => src}
                unoptimized={true}
                src={getImage(src)} 
                priority={priority}

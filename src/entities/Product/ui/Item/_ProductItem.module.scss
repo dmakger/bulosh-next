@@ -1,0 +1,39 @@
+.product {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border-radius: 15px;
+    width: min-content;
+    border: 2px solid var(--gray-1);
+    background-color: var(--background-2);
+
+    .image {
+        width: 280px;
+        height: 280px;
+        border-radius: 15px 15px 0 0;
+    }
+
+    .main {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 15px;
+
+        .text {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            .hint {
+                font-size: var(--fs-srg);
+                color: var(--foreground-2);
+            }
+        }
+
+        .bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+}

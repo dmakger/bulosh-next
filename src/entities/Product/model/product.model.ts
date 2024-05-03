@@ -1,4 +1,4 @@
-import { IAmountUnit } from "@/entities/Metric/model/amount.metric.model"
+import { IAmountUnit } from "@/entities/Metric/model/amountUnit.metric.model"
 import { ICategory } from "@/entities/Metric/model/category.metric.model"
 
 export interface IProduct {
@@ -6,12 +6,13 @@ export interface IProduct {
     name: string
     description: string
     price: number
-    image?: string
+    image?: string | null
     category: ICategory
     amount: number
-    amount_unit: IAmountUnit
-    created_at: string
-    deleted_at?: string
+    amountUnit: IAmountUnit
+    countAdded?: number
+    createdAt: string
+    deletedAt?: string | null
 }
 
 
