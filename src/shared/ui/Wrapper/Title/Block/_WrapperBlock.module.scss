@@ -1,0 +1,10 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    .title {
+        font-size: var(--fs-elg);
+        font-weight: var(--fw-bold);
+    }
+}

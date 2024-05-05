@@ -1,0 +1,6 @@
+.button {
+    border-radius: 20px;
+    &:hover {
+        box-shadow: 0 0 10px 0px var(--primary);
+    }
+}

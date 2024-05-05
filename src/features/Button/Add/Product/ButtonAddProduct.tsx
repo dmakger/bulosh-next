@@ -48,7 +48,7 @@ export const ButtonAddProduct:FC<ButtonAddProductProps> = ({product, className})
     }
     
     return (
-        <button onClick={e => handleOnClick(e)}>
+        <button onClick={e => handleOnClick(e)} className={cl.button}>
             <ImageSmart isActive={countAdded > 0} icon={ADD__ICON} />
         </button>
     )
