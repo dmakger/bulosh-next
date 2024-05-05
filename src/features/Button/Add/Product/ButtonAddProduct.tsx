@@ -31,7 +31,8 @@ export const ButtonAddProduct:FC<ButtonAddProductProps> = ({product, className})
     }, [product])
 
     // HANDLE
-    const handleOnClick = async () => {
+    const handleOnClick = async (e: React.MouseEvent<HTMLElement>) => {
+        e.preventDefault()
         const prevCountAdded = countAdded
         const body = {
             product: product.id,
@@ -47,7 +48,7 @@ export const ButtonAddProduct:FC<ButtonAddProductProps> = ({product, className})
     }
     
     return (
-        <button onClick={handleOnClick}>
+        <button onClick={e => handleOnClick(e)}>
             <ImageSmart isActive={countAdded > 0} icon={ADD__ICON} />
         </button>
     )

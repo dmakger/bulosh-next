@@ -11,7 +11,8 @@ export const CURRENT_API_URL = IS_PRODUCTION ? PRODUCTION_API_URL : LOCAL_API_UR
 
 // ===={ API URL }====
 export const API_URL = `${CURRENT_API_URL}/api`
-export const MEDIA_API_URL = `${CURRENT_API_URL}/media`
+// export const MEDIA_API_URL = `${CURRENT_API_URL}/media`
+export const MEDIA_API_URL = `${CURRENT_API_URL}`
 
 
 // ===={ FRONT URL }====

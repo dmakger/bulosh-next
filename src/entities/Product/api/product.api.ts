@@ -14,6 +14,8 @@ export const ProductAPI = createApi({
 			query: (props) => ({
 				url: `all/?${getProductProps(props)}`,
 				method: 'GET',
+				headers: getHeaderAuthorization(),
+
 			})
 		}),
 

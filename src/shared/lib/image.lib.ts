@@ -6,5 +6,9 @@ export const getImage = (image: string) => {
         return image
     if (image.startsWith('http'))
         return image
-    return `${MEDIA_API_URL}/${image}`
+    // return `${MEDIA_API_URL}/${image}`
+    let newImage = MEDIA_API_URL
+    if (!image.startsWith('/'))
+        newImage += '/'
+    return newImage + image
 }

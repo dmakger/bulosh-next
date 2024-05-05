@@ -7,6 +7,9 @@ import { ImageAPI } from "@/shared/ui/Image/API/ImageAPI";
 import { getProductUser } from "../../lib/image.product.lib";
 import { Price } from "@/shared/ui/Price/Price";
 import { ButtonAddProduct } from "@/features/Button/Add/Product/ButtonAddProduct";
+import Link from "next/link";
+import { MAIN_PAGES } from "@/config/pages-url.config";
+
 
 interface ProductItemProps{
     product: IProduct
@@ -15,8 +18,10 @@ interface ProductItemProps{
 
 export const ProductItem:FC<ProductItemProps> = ({product, className}) => {
     return (
-        <div className={cls(cl.product, className)}>
-            <ImageAPI src={getProductUser(product.image)} className={cl.image} />
+        <Link href={MAIN_PAGES.PRODUCT(product.id)}  className={cls(cl.product, className)}>
+            <div className={cl.wrapperImage}>
+                <ImageAPI src={getProductUser(product.image)} className={cl.image} />
+            </div>
             <div className={cl.main}>
                 <div className={cl.text}>
                     <h3 className={cl.name}>{product.name}</h3>
@@ -27,6 +32,6 @@ export const ProductItem:FC<ProductItemProps> = ({product, className}) => {
                     <ButtonAddProduct product={product} />
                 </div>
             </div>
-        </div>
+        </Link>
     )
 }

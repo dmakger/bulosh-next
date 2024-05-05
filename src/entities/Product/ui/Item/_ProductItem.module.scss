@@ -7,15 +7,21 @@
     border: 2px solid var(--gray-1);
     background-color: var(--background-2);
 
-    .image {
+    .wrapperImage {
         width: 280px;
         height: 280px;
-        border-radius: 15px 15px 0 0;
+
+        .image {
+            width: 100%;
+            height: inherit;
+            border-radius: 15px 15px 0 0;
+        }
     }
 
     .main {
         display: flex;
         flex-direction: column;
+        height: 100%;
         gap: 10px;
         padding: 10px 15px;
 
@@ -34,6 +40,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            margin-top: auto;
         }
     }
 }
