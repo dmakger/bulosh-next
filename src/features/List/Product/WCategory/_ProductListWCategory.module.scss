@@ -1,0 +1,13 @@
+.wrapper {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+
+    .left {
+        position: sticky;
+        display: flex;
+        flex-direction: column;
+        top: 10px;
+        width: 300px;
+    }
+}

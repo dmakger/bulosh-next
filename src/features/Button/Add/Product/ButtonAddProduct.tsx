@@ -14,9 +14,7 @@ interface ButtonAddProductProps{
     className?: string,
 }
 
-export const ButtonAddProduct:FC<ButtonAddProductProps> = ({product, className}) => {
-    console.log('asd', product);
-    
+export const ButtonAddProduct:FC<ButtonAddProductProps> = ({product, className}) => {    
     // STATE
     const [countAdded, setCountAdded] = useState(0)
 
@@ -38,9 +36,7 @@ export const ButtonAddProduct:FC<ButtonAddProductProps> = ({product, className})
             product: product.id,
             count: prevCountAdded > 0 ? 0 : prevCountAdded+1,
         }
-        setCountAdded(body.count)
-        console.log('asd 2', body.count);
-        
+        setCountAdded(body.count)        
 
         await updateProduct(body).catch(e => {
             setCountAdded(prevCountAdded)

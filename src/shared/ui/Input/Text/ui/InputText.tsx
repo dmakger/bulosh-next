@@ -29,7 +29,7 @@ export function InputText({
     const inputRef = useRef<HTMLInputElement>(null)
 
     useEffect(() => {
-        if (inputRef.current) {
+        if (inputRef.current && defaultValue) {
             inputRef.current.value = defaultValue   
         }
     }, [defaultValue])

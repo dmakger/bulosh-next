@@ -1,9 +1,9 @@
 .product {
+    width: min-content;
     display: flex;
     flex-direction: column;
     gap: 5px;
     border-radius: 15px;
-    width: min-content;
     border: 2px solid var(--gray-1);
     background-color: var(--background-2);
     transition: .2s;

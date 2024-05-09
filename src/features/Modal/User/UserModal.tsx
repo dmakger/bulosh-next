@@ -19,12 +19,10 @@ export const UserModal:FC<UserModalProps> = ({className}) => {
 
     // HANDLE
     const handleOnMouseEnter = () => {
-        console.log('Enter');
         setIsOpen(true)
     }
 
     const handleOnMouseLeave = () => {
-        console.log('Leave');
         setIsOpen(false)
     }
 

@@ -2,9 +2,7 @@
 
 import { FC, useEffect, useState } from "react"
 
-import { cls } from '@/shared/lib/classes.lib';
-import cl from './_AuthButton.module.scss'
-import { getAccessToken, isAuth } from "../../lib/auth-token.lib";
+import { isAuth } from "../../lib/auth-token.lib";
 import { ButtonSignIn } from "@/features/Button/User/SignIn/ButtonSignIn";
 import { UserModal } from "@/features/Modal/User/UserModal";
 
@@ -14,7 +12,7 @@ interface AuthButtonProps{
 
 export const AuthButton:FC<AuthButtonProps> = ({className}) => {
     // STATE
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);    
     
     // EFFECT
     useEffect(() => {

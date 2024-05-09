@@ -54,7 +54,6 @@ export const getHeaderAuthorizationIfExists = () => {
 
 // ===={ SAVE }====
 export const saveTokensStorage = (data: IAuthResponse) => {
-    console.log('save')
     saveAccessTokenStorage(data.access)
     saveRefreshTokenStorage(data.refresh)
 }

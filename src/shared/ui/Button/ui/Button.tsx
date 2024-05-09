@@ -4,7 +4,7 @@ import { FC, ReactNode, useState } from "react"
 
 import { cls } from '@/shared/lib/classes.lib';
 import cl from './_Button.module.scss'
-import { ButtonView } from "@/shared/model/button.model";
+import { ButtonType, ButtonView } from "@/shared/model/button.model";
 import { Axis, IIcon, IIconProps } from "../../Icon/model/model";
 import { ArrowIcon } from "../../Icon/ui/Arrow/ArrowIcon";
 import { ImageSmart } from "../../Image/Smart/ImageSmart";
@@ -12,6 +12,7 @@ import Link from "next/link";
 
 interface ButtonProps {
     view?: ButtonView
+    type?: ButtonType
     isActive?: boolean
     isCircle?: boolean
 
@@ -25,6 +26,7 @@ interface ButtonProps {
     arrowAxis?: Axis
 
     children?: ReactNode,
+    disabled?: boolean
     className?: string,
     classNameTitle?: string,
 
@@ -34,11 +36,11 @@ interface ButtonProps {
 }
 
 export const Button:FC<ButtonProps> = ({
-    view=ButtonView.WhiteToPrimary, isActive=false, isCircle=false,
+    view=ButtonView.WhiteToPrimary, type=ButtonType.Button, isActive=false, isCircle=false,
     beforeImage, beforeProps,
     href, title, 
     arrow, arrowAxis=Axis.Default, 
-    children, className, classNameTitle,
+    children, disabled=false, className, classNameTitle,
     onClick=()=>{}, onMouseEnter=()=>{}, onMouseLeave=()=>{},
 }) => {
     
@@ -56,7 +58,8 @@ export const Button:FC<ButtonProps> = ({
     }
 
     const html =  (
-        <button onClick={e => onClick(e)} onMouseEnter={handleOnMouseEnter} onMouseLeave={handleOnMouseLeave} 
+        <button type={type} disabled={disabled}
+                onClick={e => onClick(e)} onMouseEnter={handleOnMouseEnter} onMouseLeave={handleOnMouseLeave} 
                 className={cls(cl.button, isCircle ? cl.circle : '', cl[view], isActive ? cl.active : '', className)}>
             {beforeImage &&
                 <ImageSmart {...beforeProps} icon={beforeImage} 

@@ -13,3 +13,11 @@
 .buttonTitle {
     font-size: var(--fs-xs) !important;
 }
+
+
+.right {
+    margin-left: auto;
+    display: flex;
+    gap: 20px;
+    height: fit-content;
+}
