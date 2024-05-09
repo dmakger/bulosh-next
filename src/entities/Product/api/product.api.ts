@@ -18,6 +18,14 @@ export const ProductAPI = createApi({
 			})
 		}),
 
+		getDetailProduct: build.query<IProduct, number | string>({
+			query: (productId) => ({
+				url: `all/${productId}`,
+				method: 'GET',
+				headers: getHeaderAuthorizationIfExists(),
+			})
+		}),
+
 		updateProduct: build.mutation<IProduct, object>({
 			query: (body) => ({
 				url: `cart/update/`,

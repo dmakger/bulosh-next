@@ -12,6 +12,7 @@ export interface IProduct {
     amount: number
     amountUnit: IAmountUnit
     countAdded?: number
+    addedProducts?: IProduct[]
     createdAt: string
     deletedAt?: string | null
 }

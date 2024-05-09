@@ -1,0 +1,38 @@
+.wrapperContent {
+    background-color: var(--background-2);
+    border-radius: 20px;
+}
+
+.block {
+    width: 100%;
+    padding: 30px 70px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    
+    .title {
+        font-size: var(--fs-elg);
+        font-weight: var(--fw-medium);   
+    }
+
+    .content {
+        display: flex;
+        gap: 40px;
+
+        .image {
+            object-fit: cover;
+            border-radius: 30px;
+        }
+        .mid {
+            .top {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                .topItem {
+                    // color: var(--foreground-2);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,42 @@
+.product {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 20px;
+    border: 2px solid var(--background-1);
+    background-color: var(--background-1);
+    padding: 10px 30px 10px 20px;
+    transition: .2s;
+
+    &:hover {
+        border-color: var(--primary-light);
+        background-color: var(--primary-light);
+    }
+
+    .left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .wrapperImage {
+            width: 36px;
+            height: 36px;
+    
+            .image {
+                width: 100%;
+                height: inherit;
+                border-radius: 2px;
+            }
+        }
+    }
+
+    .right {
+        margin-left: auto;
+    }
+}
+
+.active {
+    border-color: var(--primary);
+    background-color: var(--primary-light);
+}
