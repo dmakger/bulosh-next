@@ -11,5 +11,7 @@ class CoreParams {
     NUMBER_PAGE = this.NUMBER + this.PAGE
     DEFAULT_NUMBER_PAGE = 1
 
+    CATEGORY = "category" 
+
 }
 export const CORE_PARAMS = new CoreParams()

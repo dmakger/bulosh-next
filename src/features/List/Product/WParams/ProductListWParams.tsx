@@ -15,7 +15,7 @@ interface ProductListWParamsProps{
 export const ProductListWParams:FC<ProductListWParamsProps> = ({className}) => {
     // ROUTER
     const searchParams = useSearchParams();
-    const newParams = paramsToBack(searchParams)    
+    const newParams = paramsToBack(searchParams)        
 
     return (
         <ProductList limit={PRODUCT_LIMIT} listView={ListView.Grid} hasPagination={true} className={className} {...newParams} />

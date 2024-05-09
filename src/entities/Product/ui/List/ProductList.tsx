@@ -9,6 +9,7 @@ import { IProduct, IProductProps } from "@/entities/Product/model/product.model"
 import { ProductAPI } from "@/entities/Product/api/product.api";
 import { ProductItem } from "../Item/ProductItem";
 import { WrapperPagination } from "@/shared/ui/Wrapper/Pagination/ui/WrapperPagination";
+import { NotFound } from "@/widgets/NotFound/NotFound";
 
 interface ProductListProps extends IProductProps{
     _products?: IProduct[]
@@ -21,7 +22,7 @@ interface ProductListProps extends IProductProps{
 export const ProductList:FC<ProductListProps> = ({_products, title, listView=ListView.Grid, hasPagination, className, page=1, ...rest}) => {
     // STATE
     const [pageNumber, setPageNumber] = useState<number>(page)     
-    const [countPages, setCountPages] = useState<number>(1) 
+    const [countPages, setCountPages] = useState<number>(1)     
 
     // API
     const {data: productQuery} = ProductAPI.useGetProductsQuery({...rest, page: pageNumber} as IProductProps)
@@ -32,15 +33,20 @@ export const ProductList:FC<ProductListProps> = ({_products, title, listView=Lis
             return
 
         const limit = rest.limit ? rest.limit : 1
-        setCountPages(-Math.floor(-(productQuery.count) / limit))
+        const _countPages = -Math.floor(-(productQuery.count) / limit)
+        setCountPages(_countPages === 0 ? 1 : _countPages)
     }, [productQuery])
 
     // HTML
     const html = (
         <div className={cls(cl.coreList, cl[listView], className)}>
-            {productQuery && productQuery.results.map(it => (
-                <ProductItem product={it} key={it.id} />
-            ))}
+            {productQuery && productQuery.results.length > 0 ? (
+                productQuery.results.map(it => (
+                    <ProductItem product={it} key={it.id} />
+                ))
+            ) : (
+                <NotFound />
+            )}
         </div>
     )
     

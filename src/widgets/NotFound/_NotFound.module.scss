@@ -1,0 +1,16 @@
+.block {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--background-2);
+    padding: 30px;
+    border-radius: 20px;
+    border: 2px solid var(--primary-light);
+
+    .text {
+        font-size: var(--fs-lrg);
+    }
+}

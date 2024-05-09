@@ -7,7 +7,7 @@ import cl from './_UserModal.module.scss'
 import { Modal } from "@/shared/ui/Modal/Modal";
 import { ModalView } from "@/shared/data/modal.data";
 import { UserImage } from "@/entities/User/ui/Image/UserImage";
-import { CategoryList } from "@/features/List/Category/CategoryList";
+import { CategoryList } from "@/features/List/Category/Default/CategoryList";
 
 interface UserModalProps{
     className?: string,

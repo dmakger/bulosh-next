@@ -9,7 +9,8 @@ import { ButtonView } from "@/shared/model/button.model";
 import { CATALOG__ICON } from "@/shared/ui/Icon/data/catalog.data.icon";
 import { Button } from "@/shared/ui/Button/ui/Button";
 import { ModalView } from "@/shared/data/modal.data";
-import { CategoryList } from "@/features/List/Category/CategoryList";
+import { CategoryList } from "@/features/List/Category/Default/CategoryList";
+import { CategoryListWParams } from "@/features/List/Category/WParams/CategoryListWParams";
 
 interface CategoryModalProps{
     className?: string,
@@ -38,7 +39,7 @@ export const CategoryModal:FC<CategoryModalProps> = ({className, classNameButton
                                 className={classNameButton}/>
                     }
                     className={cls(cl.modal, className)}>
-                <CategoryList hasOutline={true}/>
+                <CategoryListWParams hasOutline={true}/>
             </Modal>
         </div>
     )

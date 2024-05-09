@@ -2,6 +2,7 @@
 
 import { FC, useEffect, useState } from "react"
 
+import {isEqual} from "lodash";
 import { cls } from '@/shared/lib/classes.lib';
 import cl from './_List.module.scss'
 import { IOption } from "@/shared/model/option.model";
@@ -13,11 +14,14 @@ import { getParentCategoryOption } from "@/entities/Metric/lib/category/option.c
 
 interface ListProps {
     options: IOption[]
+    treeOptions?: IOption[]
+    active?: IOption
+    onClick?: Function
     hasOutline?: boolean
     className?: string,
 }
 
-export const List:FC<ListProps> = ({options, hasOutline=false, className}) => {    
+export const List:FC<ListProps> = ({options, treeOptions=[], active, hasOutline=false, onClick=()=>{}, className}) => {    
     // STATE
     const [tree, setTree] = useState<IOption[]>([getParentCategoryOption(options)])
 
@@ -25,6 +29,11 @@ export const List:FC<ListProps> = ({options, hasOutline=false, className}) => {
     useEffect(() => {
         setTree([getParentCategoryOption(options)])
     }, [options])
+    useEffect(() => {
+        if (treeOptions.length === 0 || isEqual(treeOptions, tree))
+            return
+        setTree(treeOptions)
+    }, [treeOptions])
     
     // HANDLE
     const handleOnClick = (option: IOption) => {
@@ -33,6 +42,7 @@ export const List:FC<ListProps> = ({options, hasOutline=false, className}) => {
                 return [...prevState, option]
             return [...prevState]
         })
+        onClick(option)
     }
 
     const handleOnClickBack = () => {
@@ -40,28 +50,35 @@ export const List:FC<ListProps> = ({options, hasOutline=false, className}) => {
             return
 
         setTree(prevState => {
-            return [...prevState].slice(0, -1)
+            const newState = [...prevState].slice(0, -1)            
+            onClick(newState.at(newState.length-1))
+            return newState
         })
     }    
     
     return (
         <div className={cls(cl.block, hasOutline ? cl.outline : "", className)}>
-            <Button title={tree[tree.length-1].name} 
-                    view={ButtonView.BlackTToPurpleT}
-                    beforeImage={tree.length > 1 ? ARROW_BLACK_PURPLE__ICON : undefined}
-                    beforeProps={{axis: Axis.Left, width: 12, height: 12}} 
-                    onClick={handleOnClickBack} className={cl.back} />
-
-            <div className={cl.content}>
-                {tree[tree.length-1].options && tree[tree.length-1].options!.map(option => (
-                    <Button title={option.name} 
-                            arrow={option.options!.length > 0 ? ARROW_GRAY_PURPLE__ICON : undefined} 
-                            arrowAxis={Axis.Right} 
-                            onClick={() => handleOnClick(option)} 
-                            className={cl.item}
-                            key={option.id} />
-                ))}
-            </div>
+            {tree.length === 0 ? (
+                <></>
+            ) : (
+                <>
+                    <Button title={tree[tree.length-1].name} 
+                            view={ButtonView.BlackTToPurpleT}
+                            beforeImage={tree.length > 1 ? ARROW_BLACK_PURPLE__ICON : undefined}
+                            beforeProps={{axis: Axis.Left, width: 12, height: 12}} 
+                            onClick={handleOnClickBack} className={cls(cl.back, active?.id === tree[tree.length-1].id ? cl.activeTitle : '')} />
+                    <div className={cl.content}>
+                        {tree[tree.length-1].options && tree[tree.length-1].options!.map(option => (
+                            <Button title={option.name} 
+                                    arrow={option.options!.length > 0 ? ARROW_GRAY_PURPLE__ICON : undefined} 
+                                    arrowAxis={Axis.Right} 
+                                    onClick={() => handleOnClick(option)} 
+                                    className={cls(cl.item, active?.id === option.id ? cl.active : '')}
+                                    key={option.id} />
+                        ))}
+                    </div>
+                </>
+            )}
         </div>
     )
 }

@@ -4,10 +4,13 @@
     gap: 20px;
 
     .left {
-        position: sticky;
         display: flex;
         flex-direction: column;
-        top: 10px;
         width: 300px;
+
+        .content {
+            position: sticky;
+            top: 10px;
+        }
     }
 }
