@@ -1,5 +1,6 @@
 import { IAmountUnit } from "@/entities/Metric/model/amountUnit.metric.model"
 import { ICategory } from "@/entities/Metric/model/category.metric.model"
+import { IQuery } from "@/shared/model/query.model"
 
 export interface IProduct {
     id: number
@@ -24,4 +25,9 @@ export interface IProductProps {
     q?: string
     popularity?: boolean
     only_added?: boolean
+}
+
+
+export interface IProductQuery extends IQuery {
+    results: IProduct[]
 }

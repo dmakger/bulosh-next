@@ -1,16 +1,17 @@
 import { FC } from "react"
 
-import { cls } from '@/shared/lib/classes.lib';
-import cl from './_ListProductPopularity.module.scss'
 import { ListView } from "@/shared/data/view.data";
 import { ProductList } from "@/entities/Product/ui/List/ProductList";
+import { IProductProps } from "@/entities/Product/model/product.model";
+import { PRODUCT_LIMIT } from "@/entities/Product/data/product.data";
 
-interface ListProductPopularityProps{
+interface ListProductPopularityProps {
+    limit?: IProductProps['limit']
     className?: string,
 }
 
-export const ListProductPopularity:FC<ListProductPopularityProps> = ({className}) => {
+export const ListProductPopularity:FC<ListProductPopularityProps> = ({limit=PRODUCT_LIMIT, className}) => {
     return (
-        <ProductList title={"Хит продаж"} popularity={true} listView={ListView.List}/>
+        <ProductList title={"Хит продаж"} popularity={true} listView={ListView.List} limit={limit} className={className} />
     )
 }

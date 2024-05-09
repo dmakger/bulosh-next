@@ -11,9 +11,7 @@ export enum ETokens {
 
 // ===={ BOOLEAN }====
 export const isAuth = () => {
-    const accessToken = getAccessToken();
-    console.log('accessToken', accessToken);
-    
+    const accessToken = getAccessToken();    
     return accessToken !== null && accessToken !== undefined;
 }
 
@@ -43,6 +41,15 @@ export const getHeaderAuthorization = () => {
         'Authorization': `Bearer ${getAccessToken()}`
     }
 }
+
+export const getHeaderAuthorizationIfExists = () => {
+    if (isAuth())
+        return {
+            'Authorization': `Bearer ${getAccessToken()}`
+        }
+    return {}
+}
+
 
 
 // ===={ SAVE }====
