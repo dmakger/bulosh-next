@@ -1,0 +1,19 @@
+.block {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .content {
+        width: 42px;
+        height: 100%;
+        border: 2px solid var(--primary);
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .button {
+        padding: 0;
+    }
+}

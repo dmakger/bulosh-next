@@ -7,6 +7,8 @@
     border: 2px solid var(--background-1);
     background-color: var(--background-1);
     padding: 10px 30px 10px 20px;
+    font-size: var(--fs-srg);
+    font-weight: var(--fw-bold);
     transition: .2s;
 
     &:hover {
@@ -39,4 +41,8 @@
 .active {
     border-color: var(--primary);
     background-color: var(--primary-light);
+
+    &:hover {
+        border-color: var(--primary);
+    }
 }

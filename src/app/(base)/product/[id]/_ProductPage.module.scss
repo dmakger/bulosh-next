@@ -24,6 +24,9 @@
             border-radius: 30px;
         }
         .mid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
             .top {
                 display: flex;
                 flex-direction: column;
@@ -32,6 +35,29 @@
                 .topItem {
                     // color: var(--foreground-2);
                 }
+            }
+
+            .bottom {
+                // margin-top: auto;
+            }
+        }
+        .right {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 330px;
+            width: 100%;
+
+            .price {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 10px;
+                background-color: var(--primary);
+                font-size: var(--fs-mlg);
+                font-weight: var(--fw-bold);
+                color: var(--foreground-3);
+                padding: 15px;
             }
         }
     }

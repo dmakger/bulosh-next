@@ -10,12 +10,13 @@ import { getProductUser } from "../../../lib/image.product.lib";
 interface ProductMiniProps{
     product: IProduct
     active?: boolean
+    onClick?: Function,
     className?: string,
 }
 
-export const ProductMini:FC<ProductMiniProps> = ({product, active=false, className}) => {
+export const ProductMini:FC<ProductMiniProps> = ({product, active=false, onClick=()=>{}, className}) => {
     return (
-        <div className={cls(cl.product, active ? cl.active : '', className)}>
+        <button className={cls(cl.product, active ? cl.active : '', className)} onClick={() => onClick()}>
             <div className={cl.left}>
                 <div className={cl.wrapperImage}>
                     <ImageAPI src={getProductUser(product.image)} className={cl.image} />
@@ -23,6 +24,6 @@ export const ProductMini:FC<ProductMiniProps> = ({product, active=false, classNa
                 <span className={cl.title}>{product.name}</span>
             </div>
             <span className={cl.right}>{product.price} ₽</span>
-        </div>
+        </button>
     )
 }

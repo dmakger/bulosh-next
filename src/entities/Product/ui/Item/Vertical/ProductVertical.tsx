@@ -6,7 +6,7 @@ import { IProduct } from "../../../model/product.model";
 import { ImageAPI } from "@/shared/ui/Image/API/ImageAPI";
 import { getProductUser } from "../../../lib/image.product.lib";
 import { Price } from "@/shared/ui/Price/Price";
-import { ButtonAddProduct } from "@/features/Button/Add/Product/ButtonAddProduct";
+import { ButtonAddProduct } from "@/features/Button/Add/Product/Simple/ButtonAddProduct";
 import Link from "next/link";
 import { MAIN_PAGES } from "@/config/pages-url.config";
 

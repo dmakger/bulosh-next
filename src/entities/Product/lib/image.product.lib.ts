@@ -5,6 +5,6 @@ import { IProduct } from "../model/product.model"
 
 export const getProductUser = (image: IProduct['image']) => {
     if (!image)
-        return ImageDefaultJPG    
+        return ImageDefaultJPG
     return getImage(image)
 }

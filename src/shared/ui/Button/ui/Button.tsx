@@ -19,6 +19,10 @@ interface ButtonProps {
     beforeImage?: IIcon
     beforeProps?: IIconProps
 
+    afterImage?: IIcon
+    afterProps?: IIconProps
+
+
     href?: string
     title?: string,
 
@@ -38,6 +42,7 @@ interface ButtonProps {
 export const Button:FC<ButtonProps> = ({
     view=ButtonView.WhiteToPrimary, type=ButtonType.Button, isActive=false, isCircle=false,
     beforeImage, beforeProps,
+    afterImage, afterProps,
     href, title, 
     arrow, arrowAxis=Axis.Default, 
     children, disabled=false, className, classNameTitle,
@@ -69,6 +74,12 @@ export const Button:FC<ButtonProps> = ({
             }
             {title && 
                 <span className={cls(cl.title, classNameTitle)}>{title}</span>
+            }
+            {afterImage &&
+                <ImageSmart {...afterProps} icon={afterImage} 
+                            width={afterProps && afterProps.width ? afterProps.width: 20} 
+                            height={afterProps && afterProps.height ? afterProps.height: 20} 
+                            isActive={isActive} isHovered={isHovered} />
             }
             {arrow &&
                 <ArrowIcon icon={arrow} axis={arrowAxis} width={12} height={12} isActive={isActive} isHovered={isHovered} />

@@ -26,7 +26,9 @@ export const ProductList:FC<ProductListProps> = ({_products, title, productView,
     // STATE
     const [pageNumber, setPageNumber] = useState<number>(page)     
     const [countPages, setCountPages] = useState<number>(1)     
-    const [products, setProducts] = useState<IProduct[]>([])     
+    const [products, setProducts] = useState<IProduct[]>([])
+    
+    console.log('qwe', products);
 
     // API
     const {data: productQuery} = ProductAPI.useGetProductsQuery({...rest, page: pageNumber} as IProductProps)
