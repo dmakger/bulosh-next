@@ -16,13 +16,14 @@ interface ModalProps{
     buttonNode: ReactNode
     children: ReactNode
     className?: string,
+    classNameContent?: string,
 }
 
 export const Modal:FC<ModalProps> = ({
     _isOpen=false, 
     onClickOverlay=()=>{}, onMouseEnter=()=>{}, onMouseLeave=()=>{}, 
     view=ModalView.CENTER, hasBlack=true, buttonNode, 
-    children, className
+    children, className, classNameContent
 }) => {    
     // STATE
     const [isOpen, setIsOpen] = useState(false);
@@ -48,7 +49,11 @@ export const Modal:FC<ModalProps> = ({
             <div className={cls(isOpen ? cl.open : '', cl.modal, className)}>
                 <div onClick={()=>onClickOverlay()} className={cls(isOpen ? cl.openOverlay : '', cl.overlay, hasBlack ? cl.black : '', className)} />
                 <div onMouseEnter={() => onMouseEnter()} onMouseLeave={() => onMouseLeave()} className={cls(isOpen ? cl.openSidebar : '', views[view], cl.sidebar)}>
-                    {children}
+                    {view === ModalView.MANUAL ? (
+                        <div className={cls(cl.content, classNameContent)}>{children}</div>
+                    ) : (
+                        <>{children}</>
+                    )}
                 </div>
             </div>
         </>

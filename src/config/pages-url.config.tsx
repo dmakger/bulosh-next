@@ -1,3 +1,13 @@
+// ======={ AUTH }=======
+class AUTH {
+    private root = '/auth'
+
+    LOGIN = `${this.root}/login`
+    SIGN_UP = `${this.root}/signup`
+}
+
+export const AUTH_PAGES = new AUTH()
+
 
 // ======={ MAIN }=======
 class MAIN {

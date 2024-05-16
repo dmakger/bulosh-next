@@ -7,6 +7,7 @@ import { Button } from "@/shared/ui/Button/ui/Button";
 import { UserAPI } from "@/entities/User/api/user.api";
 import { IAuthRequest } from "@/entities/User/model/user.model";
 import { ButtonView } from "@/shared/model/button.model";
+import { AUTH_PAGES } from "@/config/pages-url.config";
 
 interface ButtonSignInProps{
     onClick?: Function,
@@ -18,20 +19,22 @@ export const ButtonSignIn:FC<ButtonSignInProps> = ({onClick=()=>{}, className}) 
 
     const handleOnClick = async () => {
         
-        const userData: IAuthRequest = {
-            username: "adminBulosh",
-            password: "erw&gfsD1"
-        }
-        await login(userData).then(r => {
-            onClick(true)
-        }, e => {
-            onClick(false)
-        })
+        // const userData: IAuthRequest = {
+        //     username: "adminBulosh",
+        //     password: "erw&gfsD1"
+        // }
+        // await login(userData).then(r => {
+        //     onClick(true)
+        // }, e => {
+        //     onClick(false)
+        // })
     }
 
     return (
         <Button view={ButtonView.PrimaryOToFill}
                 title="Войти" 
-                onClick={() => handleOnClick()} />
+                href={AUTH_PAGES.LOGIN}
+                // onClick={() => handleOnClick()} 
+                />
     )
 }

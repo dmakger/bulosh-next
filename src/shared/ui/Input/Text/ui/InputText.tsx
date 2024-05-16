@@ -36,7 +36,7 @@ export function InputText({
 
     return (
         <WrapperTitleInput title={title}>
-            <input className={cls(variant === EInputTextVariant.W_HOVERED ? cl.wHovered : '', cl.input, className)}
+            <input className={cls(variant === EInputTextVariant.W_HOVERED ? cl.wHovered : '', cl.input, cl[variant], className)}
                    ref={inputRef}
                    type={type}
                    defaultValue={defaultValue}

@@ -8,6 +8,7 @@ import { Modal } from "@/shared/ui/Modal/Modal";
 import { ModalView } from "@/shared/data/modal.data";
 import { UserImage } from "@/entities/User/ui/Image/UserImage";
 import { CategoryList } from "@/features/List/Category/Default/CategoryList";
+import { AuthContent } from "@/entities/User/ui/AuthContent/AuthContent";
 
 interface UserModalProps{
     className?: string,
@@ -18,12 +19,8 @@ export const UserModal:FC<UserModalProps> = ({className}) => {
     const [isOpen, setIsOpen] = useState(false);
 
     // HANDLE
-    const handleOnMouseEnter = () => {
-        setIsOpen(true)
-    }
-
-    const handleOnMouseLeave = () => {
-        setIsOpen(false)
+    const handleOnClick = () => {
+        setIsOpen(prevState => !prevState)
     }
 
     return (
@@ -31,15 +28,15 @@ export const UserModal:FC<UserModalProps> = ({className}) => {
             <Modal _isOpen={isOpen} 
                     hasBlack={false}
                     view={ModalView.MANUAL} 
-                    onMouseEnter={handleOnMouseEnter} 
-                    onMouseLeave={handleOnMouseLeave} 
+                    onClickOverlay={handleOnClick}
                     buttonNode={
-                        <div onMouseEnter={handleOnMouseEnter} onMouseLeave={handleOnMouseLeave}>
+                        <div onClick={handleOnClick}>
                             <UserImage isAuthUser={true} />
                         </div>
                     }
-                    className={cls(cl.modal, className)}>
-                <CategoryList hasOutline={true}/>
+                    className={cls(cl.modal, className)} 
+                    classNameContent={cl.content}>
+                <AuthContent />
             </Modal>
         </div>
     )
