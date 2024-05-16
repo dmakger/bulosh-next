@@ -15,8 +15,7 @@ export const UserAPI = createApi({
 				method: 'POST',
 				body,
 				responseHandler: async (response) => {
-					if (!response.ok)
-						return response
+					if (!response.ok) return response
                     const data = await response.json() as IAuthResponse					
                     console.log(data, response);
 					
@@ -27,10 +26,11 @@ export const UserAPI = createApi({
 		}),
 		register: build.mutation<IAuthResponse, IAuthRequest>({
 			query: (body) => ({
-				url: `register/`,
+				url: `user/register/`,
 				method: 'POST',
 				body,
 				responseHandler: async (response) => {
+					if (!response.ok) return response
                     const data = await response.json() as IAuthResponse					
                     saveTokensStorage(data)
                     return data
