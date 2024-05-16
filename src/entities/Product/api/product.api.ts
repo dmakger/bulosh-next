@@ -34,5 +34,14 @@ export const ProductAPI = createApi({
 				body,
 			})
 		}),
+
+		buyCart: build.mutation<void, number[]>({
+			query: (products) => ({
+				url: `cart/buy/`,
+				method: 'POST',
+				headers: getHeaderAuthorization(),
+				body: {products},
+			})
+		}),
 	})
 })

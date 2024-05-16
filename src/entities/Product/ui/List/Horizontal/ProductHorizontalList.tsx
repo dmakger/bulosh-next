@@ -2,20 +2,16 @@ import { FC } from "react"
 
 import { Query } from "@/shared/ui/Query/Query";
 import { ListView } from "@/shared/data/view.data";
-import { IProduct } from "@/entities/Product/model/product.model";
 import { ProductHorizontal } from "../../Item/Horizontal/ProductHorizontal";
+import { IProductListProps, TFuncRemoveProduct } from "@/entities/Product/model/props.product.model";
 
-interface ProductHorizontalListProps{
-    products: IProduct[]
-    view?: ListView
-    className?: string,
-}
+interface ProductHorizontalListProps extends IProductListProps {}
 
-export const ProductHorizontalList:FC<ProductHorizontalListProps> = ({products=[], view=ListView.Column, className}) => {
+export const ProductHorizontalList:FC<ProductHorizontalListProps> = ({products=[], view=ListView.Column, removeProduct, className}) => {
     return (
         <Query listView={view} className={className}>
             {products.map(product => (
-                <ProductHorizontal product={product} key={product.id} />
+                <ProductHorizontal product={product} removeProduct={removeProduct} key={product.id} />
             ))}
         </Query>
     )

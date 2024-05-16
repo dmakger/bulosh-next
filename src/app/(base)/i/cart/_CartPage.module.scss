@@ -1,0 +1,10 @@
+.content {
+    display: flex;
+    align-items: self-start !important;
+    flex-direction: row !important;
+    gap: 20px;
+
+    .button {
+        margin-top: 100px;
+    }
+}

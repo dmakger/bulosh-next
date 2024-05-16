@@ -4,23 +4,27 @@ import { FC, useState } from "react"
 
 import { cls } from '@/shared/lib/classes.lib';
 import cl from './_ProductHorizontal.module.scss'
-import { IProduct } from "@/entities/Product/model/product.model";
 import { MAIN_PAGES } from "@/config/pages-url.config";
 import { ImageAPI } from "@/shared/ui/Image/API/ImageAPI";
 import Link from "next/link";
 import { getProductUser } from "@/entities/Product/lib/image.product.lib";
 import { Price } from "@/shared/ui/Price/Price";
-import { ButtonAddProduct } from "@/features/Button/Add/Product/Simple/ButtonAddProduct";
 import { ButtonAddProductWPlusMinus } from "@/features/Button/Add/Product/WPlusMinus/ButtonAddProductWPlusMinus";
+import { IProductItemProps } from "@/entities/Product/model/props.product.model";
+import { Button } from "@/shared/ui/Button/ui/Button";
+import { TRASH__ICON } from "@/shared/ui/Icon/data/trash.data.icon";
+import { ButtonView } from "@/shared/model/button.model";
 
-interface ProductHorizontalProps {
-    product: IProduct
-    className?: string,
+interface ProductHorizontalProps extends IProductItemProps{
 }
 
-export const ProductHorizontal:FC<ProductHorizontalProps> = ({product, className}) => {
-    // STATE
-    const [isDeleted, setIsDeleted] = useState(false)
+export const ProductHorizontal:FC<ProductHorizontalProps> = ({product, removeProduct, className}) => {
+    // HANDLE
+    const handleOnClickDelete = (e: React.MouseEvent<HTMLElement>) => {
+        e.preventDefault()
+        if (removeProduct)
+            removeProduct(product)
+    }
 
     return (
         <Link href={MAIN_PAGES.PRODUCT(product.id)}  className={cls(cl.product, className)}>
@@ -40,6 +44,9 @@ export const ProductHorizontal:FC<ProductHorizontalProps> = ({product, className
                 </div>
                 <div className={cl.bottom}>
                     <ButtonAddProductWPlusMinus product={product} />
+                    {removeProduct && 
+                        <Button view={ButtonView.Empty} beforeImage={TRASH__ICON} onClick={handleOnClickDelete}/>
+                    }
                 </div>
             </div>
         </Link>

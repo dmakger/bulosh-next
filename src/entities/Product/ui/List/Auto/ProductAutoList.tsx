@@ -6,23 +6,19 @@ import { IProduct } from "@/entities/Product/model/product.model";
 import { ListView } from "@/shared/data/view.data";
 import { ProductVerticalList } from "../Vertical/ProductVerticalList";
 import { ProductMiniList } from "../Mini/ProductMiniList";
+import { IProductListProps } from "@/entities/Product/model/props.product.model";
 
-interface ProductAutoListProps{
-    products: IProduct[],
+interface ProductAutoListProps extends IProductListProps {
     productView: ProductView,
-    view?: ListView
-    className?: string,
 }
 
-export const ProductAutoList:FC<ProductAutoListProps> = ({products, productView, view, className}) => {
-    const props = {products, view, className}
-
+export const ProductAutoList:FC<ProductAutoListProps> = ({productView, ...rest}) => {
     if (productView === ProductView.Horizontal)
-        return <ProductHorizontalList {...props} />
+        return <ProductHorizontalList {...rest} />
     if (productView === ProductView.Vertical)
-        return <ProductVerticalList {...props} />
+        return <ProductVerticalList {...rest} />
     if (productView === ProductView.Mini)
-        return <ProductMiniList {...props} />
+        return <ProductMiniList {...rest} />
     
     return <></>
 }

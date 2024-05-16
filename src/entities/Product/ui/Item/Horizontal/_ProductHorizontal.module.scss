@@ -17,7 +17,7 @@
         border-right: 1px solid var(--primary-light);
 
         .image {
-            width: -webkit-fill-available;
+            width: inherit;
             height: -webkit-fill-available;
             border-radius: 14px 0 0 14px;
         }
@@ -57,6 +57,11 @@
                 font-size: var(--fs-sm);
                 color: var(--foreground-2);
             }
+        }
+
+        .bottom {
+            display: flex;
+            justify-content: space-between;
         }
     }
 }
