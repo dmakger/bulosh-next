@@ -1,3 +1,4 @@
+import { AdAPI } from "@/entities/Ad/api/ad.api";
 import { CategoryAPI } from "@/entities/Metric/api/category.metric.api";
 import { ProductAPI } from "@/entities/Product/api/product.api";
 import { UserAPI } from "@/entities/User/api/user.api";
@@ -7,6 +8,7 @@ const rootReducer = combineReducers({
     [CategoryAPI.reducerPath]: CategoryAPI.reducer,
     [UserAPI.reducerPath]: UserAPI.reducer,
     [ProductAPI.reducerPath]: ProductAPI.reducer,
+    [AdAPI.reducerPath]: AdAPI.reducer,
 })
 
 export const setupStore = () => {
@@ -19,6 +21,7 @@ export const setupStore = () => {
                 CategoryAPI.middleware,
                 UserAPI.middleware,
                 ProductAPI.middleware,
+                AdAPI.middleware,
             ),
     })
 }

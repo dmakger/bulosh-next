@@ -62,7 +62,7 @@ export const AuthBlock:FC<AuthBlockProps> = ({type=AuthType.Login, className, on
                     setError("Такой пользователь уже существует")
                 else {
                     setError(undefined)
-                    router.push(MAIN_PAGES.HOME);
+                    router.push(AUTH_PAGES.LOGIN);
                 }
             })
         }

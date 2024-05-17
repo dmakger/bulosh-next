@@ -31,8 +31,7 @@ export const UserAPI = createApi({
 				body,
 				responseHandler: async (response) => {
 					if (!response.ok) return response
-                    const data = await response.json() as IAuthResponse					
-                    saveTokensStorage(data)
+                    const data = await response.json() as IUser
                     return data
                 },
 			})

@@ -14,6 +14,7 @@ import { ProductView } from "@/entities/Product/data/product.data";
 import { ProductAutoList } from "../Auto/ProductAutoList";
 import { TFuncRemoveProduct } from "@/entities/Product/model/props.product.model";
 import { count } from "console";
+import { isEqual } from "lodash";
 
 interface ProductListProps extends IProductProps{
     _products?: IProduct[]
@@ -46,11 +47,14 @@ export const ProductList:FC<ProductListProps> = ({_products, title, productView,
     }, [productQuery])
 
     useEffect(() => {
-        if (_products !== undefined)
-            setProducts(_products)
         if (productQuery)
             setProducts(productQuery.results)
-    }, [_products, productQuery])
+    }, [productQuery])
+
+    useEffect(() => {
+        if (_products !== undefined && !isEqual(products, _products))
+            setProducts(_products)
+    }, [_products])
 
     useEffect(() => {
         if (setOutProducts)
